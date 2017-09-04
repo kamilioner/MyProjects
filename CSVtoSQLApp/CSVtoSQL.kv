@@ -1,0 +1,183 @@
+#: import main CSVtoSQL
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+
+CSVtoSQL:
+
+<CustomPopup1>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: "Success"
+    Button:
+        text: "The file has been uploaded, click to close."
+        on_press: root.dismiss()
+
+<CustomPopup2>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: "Failure"
+    Button:
+        text: "Something went wrong. Make sure all gaps are filled."
+        on_press: root.dismiss()
+
+<CSVtoSQL>:
+    orientation: "vertical"
+    file_name_text: file_name
+    file_delimiter_text: delimiter_name
+    server_host_text: host_name
+    server_port_text: port_name
+    server_user_text: user_name
+    server_pass_text: pass_name
+    server_db_text: db_name
+    server_table_name: table_name
+    server_connection_status_text: connection_status_name
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            size_hint_x: 9
+            text: "Choose a file"
+
+        Button:
+            text: "Choose"
+            size_hint_x: 1
+            on_press: root.open_file()
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            size_hint_x: 4
+            text: "Chosen file:"
+
+        TextInput:
+
+            size_hint_x: 4
+            id: file_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            size_hint_x: 4
+            text: "File delimiter:"
+
+        TextInput:
+
+            size_hint_x: 4
+            id: delimiter_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            size_hint_x: 4
+            text: "Host name:"
+
+        TextInput:
+
+            size_hint_x: 4
+            id: host_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        Label:
+            size_hint_x: 4
+            text: "Port:"
+
+        TextInput:
+
+            size_hint_x: 4
+            id: port_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            size_hint_x: 4
+            text: "MySQL user name:"
+
+        TextInput:
+
+            size_hint_x: 4
+            id: user_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        Label:
+            size_hint_x: 4
+            text: "MySQL password:"
+
+        TextInput:
+
+            size_hint_x: 4
+            id: pass_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            size_hint_x: 4
+            text: "Database name:"
+
+        TextInput:
+
+            size_hint_x: 4
+            id: db_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        Label:
+            size_hint_x: 4
+            text: "Table name:"
+
+        TextInput:
+
+            size_hint_x: 4
+            id: table_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Button:
+            text: "Connect to MySQL"
+            size_hint_x: 12
+            on_press: root.test_connection()
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            size_hint_x: 4
+            text: "CONNECTION STATUS:"
+
+        TextInput:
+
+            size_hint_x: 6
+            id: connection_status_name
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Button:
+            text: "Submit file"
+            size_hint_x: 12
+            on_press: root.submit_file()
+
+
+
+

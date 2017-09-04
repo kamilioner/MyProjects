@@ -1,0 +1,5 @@
+use test
+IF OBJECT_ID('t1', 'U') IS NOT NULL DROP TABLE t1;
+CREATE TABLE t1 ([CUST] varchar(39), [NAME] varchar(81), [LOCATION] varchar(45), [APPLICATION] varchar(4), [SERIAL] varchar(55), [MFG] varchar(4), [MODEL] varchar(137), [CLASS] varchar(7), [OS] varchar(8), [OSVERSION] varchar(10), [TYPE] varchar(9), [STATUS] varchar(6), [IP] varchar(36), [CPUS] varchar(5), [MEM] varchar(4), [ENVIRONMENT] varchar(22), [PLATFORM] varchar(4), [BILLABLE] varchar(4), [ISSUPPORTED] varchar(4), [SHALLMONITOR] varchar(4), [SHALLPATCH] varchar(4), [SHALLBACKUP] varchar(4), [CMDB] varchar(7), [MONITORED] varchar(7), [PATCHED] varchar(7), [BACKEDUP] varchar(7), [ANTIVIRUS] varchar(7), [VCENTER] varchar(7), [DISCOVERY] varchar(7), [PROB] varchar(5), [OSTAB] varchar(5), [DATA SOURCES] varchar(41), [VALIDATED] varchar(22));
+BULK INSERT t1 FROM 'C:\Users\A660197\PycharmProjects\MyProjects\CSVtoSQLApp\checkval.csv' WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', ROWTERMINATOR = '\n');
+go
